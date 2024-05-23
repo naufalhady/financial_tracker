@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <color name="black">#FF000000</color>-->
+<!--    <color name="white">#FFFFFFFF</color>-->
+    <color name="grey_50">#F3F4F6</color>
+    <color name="grey_800">#1F2937</color>
+    <color name="grey_bg">#828282</color>
+
+    <!--default-->
+    <color name="blue_500">#006AF6</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="background">#f9f9f9</color>
+    <color name="income">#6FCF97</color>
+    <color name="expense">#EB5757</color>
+</resources>
