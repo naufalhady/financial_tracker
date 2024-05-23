@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.financialtracker.views.fragment.AddTransactionFragment
 import com.example.financialtracker.R
 import com.example.financialtracker.views.fragment.HomeFragment
 import com.example.financialtracker.views.fragment.PemasukanFragment
@@ -32,7 +33,10 @@ class MainActivity : AppCompatActivity() {
                     loadFragment(PemasukanFragment())
                     true
                 }
-
+                R.id.nav_add -> {
+                    loadFragment(AddTransactionFragment())
+                    true
+                }
                 R.id.nav_pengeluaran -> {
                     loadFragment(PengeluaranFragment())
                     true

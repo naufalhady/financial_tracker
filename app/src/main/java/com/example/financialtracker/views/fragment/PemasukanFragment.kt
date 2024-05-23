@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import com.example.financialtracker.R
 
 class PemasukanFragment : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

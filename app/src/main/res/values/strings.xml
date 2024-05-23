@@ -4,7 +4,7 @@
     <string name="header_home">HOME</string>
     <string name="header_add_transaction">ADD TRANSACTION</string>
 
-<!--Randomly-->
+    <!--Randomly-->
     <string name="text_save_transaction">Save Transaction</string>
     <string name="text_ui_mode">UI Mode</string>
     <string name="text_total_income">Total Income</string>
@@ -27,7 +27,7 @@
     <string name="text_edit">Edit</string>
     <string name="text_createdAt">Created At</string>
 
-<!--NAVBAR-->
+    <!--NAVBAR-->
     <string name="nav_beranda">Beranda</string>
     <string name="nav_pemasukan">Pemasukan</string>
     <string name="nav_pengeluaran">Pengeluaran</string>
