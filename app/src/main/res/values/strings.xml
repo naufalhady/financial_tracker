@@ -7,6 +7,7 @@
     <!--Randomly-->
     <string name="text_delete_transaction">Delete Transaction</string>
     <string name="text_edit_transaction">Edit Transaction</string>
+    <string name="text_update_transaction">Update Transaction</string>
     <string name="text_save_transaction">Save Transaction</string>
     <string name="text_ui_mode">UI Mode</string>
     <string name="text_total_income">Total Income</string>

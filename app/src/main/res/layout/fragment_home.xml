@@ -34,7 +34,7 @@
 
             <include
                 android:id="@+id/total_balance"
-                layout="@layout/total_balance"
+                layout="@layout/item_total_balance"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_marginTop="8dp"
