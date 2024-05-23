@@ -5,19 +5,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/detail_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/white">
+
+    <include
+                android:id="@+id/headerDetail"
+                layout="@layout/header_detail_transaction"
+                android:layout_width="match_parent"
+                android:layout_height="61dp"
+                android:layout_marginTop="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         <TextView
             android:id="@+id/caption_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimen_16"
-            android:layout_marginTop="@dimen/dimen_32"
+            android:layout_marginTop="61dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/text_title"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerDetail" />
         <TextView
             android:id="@+id/title"
                 android:layout_width="wrap_content"
@@ -191,7 +202,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dimen_16"
-                android:layout_marginTop="108dp"
+                android:layout_marginTop="70dp"
                 android:layout_marginEnd="@dimen/dimen_16"
                 android:text="@string/text_edit_transaction"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -209,7 +220,6 @@
                 android:layout_marginEnd="@dimen/dimen_16"
                 android:text="@string/text_delete_transaction"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_edit_transaction" />
 
