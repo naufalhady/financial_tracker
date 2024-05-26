@@ -8,15 +8,20 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <include
-                android:id="@+id/headerDetail"
-                layout="@layout/header_detail_transaction"
-                android:layout_width="match_parent"
-                android:layout_height="61dp"
-                android:layout_marginTop="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/titleDetailTransaction"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="DETAIL TRANSACTION" />
+
+
         <TextView
             android:id="@+id/caption_title"
             android:layout_width="wrap_content"
@@ -27,8 +32,7 @@
             android:text="@string/text_title"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/headerDetail" />
+            app:layout_constraintTop_toTopOf="parent" />
         <TextView
             android:id="@+id/title"
                 android:layout_width="wrap_content"

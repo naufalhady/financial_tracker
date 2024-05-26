@@ -8,31 +8,37 @@ import java.text.DateFormat
 
 @Entity(tableName = "transactions")
 data class Transaction(
+
     @ColumnInfo(name = "title")
     var title: String,
-
     @ColumnInfo(name = "amount")
     var amount: Double,
-
     @ColumnInfo(name = "transactionType")
     var transactionType: String,
-
     @ColumnInfo(name = "tag")
     var tag: String,
-
     @ColumnInfo(name = "date")
     var date: String,
-
     @ColumnInfo(name = "note")
     var note: String,
-
     @ColumnInfo(name = "createdAt")
-    var createdAt: Long = System.currentTimeMillis(),
-
+    var createdAt: Long =
+        System.currentTimeMillis(),
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var id: Int = 0
+    var id: Int = 0,
 ) : Serializable {
     val createdAtDateFormat: String
-        get() = DateFormat.getDateTimeInstance().format(createdAt) // Date Format: Jan 11, 2021, 11:30 AM
+        get() = DateFormat.getDateTimeInstance()
+            .format(createdAt) // Date Format: Jan 11, 2021, 11:30 AM
 }
+
+
+//Percobaan data dummy
+//data class Transaction(
+//    val transactionName: String,
+//    val transactionCategory: String,
+//    val transactionAmount: String,
+//    val transactionDrawable: Int,
+//    var id: Int = 0
+//)

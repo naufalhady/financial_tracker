@@ -30,7 +30,7 @@
             app:layout_constraintTop_toBottomOf="@+id/headerUpdate" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_save_transaction"
+            android:id="@+id/btnUpdateTransaction"
             style="@style/PrimaryButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

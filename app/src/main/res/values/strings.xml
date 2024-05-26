@@ -7,7 +7,7 @@
     <!--Randomly-->
     <string name="text_delete_transaction">Delete Transaction</string>
     <string name="text_edit_transaction">Edit Transaction</string>
-    <string name="text_update_transaction">Update Transaction</string>
+    <string name="text_update_transaction">Save Update</string>
     <string name="text_save_transaction">Save Transaction</string>
     <string name="text_ui_mode">UI Mode</string>
     <string name="text_total_income">Total Income</string>
@@ -43,4 +43,16 @@
     <string name="text_total_expense_nominal">30000.000</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="TrcType">
+        <item>Income</item>
+        <item>Expense</item>
+    </string-array>
+
+    <string-array name="tag">
+        <item>Essential Needs</item>
+        <item>Savings and Investments</item>
+        <item>Lifestyle</item>
+        <item>Miscellaneous</item>
+    </string-array>
 </resources>
