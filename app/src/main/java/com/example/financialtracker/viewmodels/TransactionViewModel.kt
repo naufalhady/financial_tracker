@@ -1,12 +1,11 @@
 package com.example.financialtracker.viewmodels
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.financialtracker.model.Transaction
 import com.example.financialtracker.repo.TransactionRepository
-import kotlinx.coroutines.launch
 
 class TransactionViewModel: ViewModel() {
     private val trcRepo = TransactionRepository
@@ -25,6 +24,8 @@ class TransactionViewModel: ViewModel() {
 //    }
 
     fun updateTransaction(context: Context, transaction: Transaction) {
-        return trcRepo.updateTransaction(context, transaction)
+//        return trcRepo.updateTransaction(context, transaction)
+        Log.d("TransactionViewModel", "Updating transaction: $transaction")
+        TransactionRepository.updateTransaction(context, transaction)
     }
 }
