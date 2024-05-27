@@ -1,6 +1,6 @@
 package com.example.financialtracker.views.fragment
 
-//import com.example.financialtracker.viewmodels.TransactionViewModel
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
