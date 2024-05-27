@@ -5,10 +5,8 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import com.example.financialtracker.model.Transaction
 import com.example.financialtracker.room.AppDatabase
-import com.example.financialtracker.room.TransactionDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class TransactionRepository {
@@ -36,6 +34,12 @@ class TransactionRepository {
             appDatabase = initDb(context)
             CoroutineScope(Dispatchers.IO).launch {
                 appDatabase!!.transactionDao().updateTransaction(transaction)
+            }
+        }
+        fun deleteTransaction(context: Context, transaction: Transaction) {
+            appDatabase = initDb(context)
+            CoroutineScope(Dispatchers.IO).launch {
+                appDatabase!!.transactionDao().deleteTransaction(transaction)
             }
         }
     }

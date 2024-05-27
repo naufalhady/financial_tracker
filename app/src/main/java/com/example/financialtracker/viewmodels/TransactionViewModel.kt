@@ -18,6 +18,9 @@ class TransactionViewModel: ViewModel() {
     fun getAllTrc(context: Context): LiveData<List<Transaction>>? {
         return trcRepo.getAllTrc(context)
     }
+    fun deleteTransaction(context: Context, transaction: Transaction) {
+        return trcRepo.deleteTransaction(context, transaction)
+    }
 
 //    fun updateTrc(context: Context, transaction: Transaction){
 //        return trcRepo.updateTrc(context,transaction)
@@ -28,4 +31,5 @@ class TransactionViewModel: ViewModel() {
         Log.d("TransactionViewModel", "Updating transaction: $transaction")
         TransactionRepository.updateTransaction(context, transaction)
     }
+
 }
