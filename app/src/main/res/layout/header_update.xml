@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cv_header_update"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -19,7 +17,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="16dp"
-            android:text="@string/detail_transaction"
+            android:text="@string/update_transaction"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:fontFamily="@font/montserrat_semibold"/>

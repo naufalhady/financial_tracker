@@ -37,6 +37,7 @@
     <string name="profil">Profile</string>
     <string name="update_transaction">Update Transaction</string>
     <string name="detail_transaction">Detail Transaction</string>
+    <string name="blankText">Text</string>
 
 
 
@@ -55,10 +56,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="TrcType">
+        <item>Pilih Jenis Transaksi</item>
         <item>Income</item>
         <item>Expense</item>
     </string-array>
     <string-array name="tag">
+        <item>Pilih Kategori Transaksi</item>
         <item>Essential Needs</item>
         <item>Savings and Investments</item>
         <item>Lifestyle</item>

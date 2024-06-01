@@ -3,30 +3,32 @@ package com.example.financialtracker.views.fragment
 import android.app.DatePickerDialog
 import android.icu.util.Calendar
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.financialtracker.R
 import com.example.financialtracker.databinding.FragmentAddTransactionBinding
 import com.example.financialtracker.model.Transaction
 import com.example.financialtracker.viewmodels.TransactionViewModel
+import com.example.financialtracker.views.adapter.CustomSpinnerAdapter
 
 class AddTransactionFragment : Fragment() {
     private lateinit var binding: FragmentAddTransactionBinding
-    private  val transactionModel by viewModels<TransactionViewModel>()
+    private val transactionModel by viewModels<TransactionViewModel>()
     var trcTag: String? = null
     var trcType: String? = null
+    private var isTagSpinnerInitialized = false
+    private var isTypeSpinnerInitialized = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        binding = FragmentAddTransactionBinding.inflate(inflater,container, false)
+        binding = FragmentAddTransactionBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -34,101 +36,97 @@ class AddTransactionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initViews()
     }
-        private fun initViews() {
-            val arrTag = resources.getStringArray(R.array.tag)
-            val adapter = ArrayAdapter(
-                this.requireContext(), android.R.layout.simple_spinner_item, arrTag
-            )
 
-            binding.addTransactionLayout.tag.adapter = adapter
+    private fun initViews() {
+        val arrTag = resources.getStringArray(R.array.tag)
+        val adapter = CustomSpinnerAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_dropdown_item,
+            arrTag
+        )
+        binding.addTransactionLayout.tag.adapter = adapter
 
-            val arrTrcType = resources.getStringArray(R.array.TrcType)
-            val typeAdapter = ArrayAdapter(
-                this.requireContext(), android.R.layout.simple_spinner_item, arrTrcType
-            )
-            binding.addTransactionLayout.transactionType.adapter = typeAdapter
+        val arrTrcType = resources.getStringArray(R.array.TrcType)
+        val typeAdapter = CustomSpinnerAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_dropdown_item,
+            arrTrcType
+        )
+        binding.addTransactionLayout.transactionType.adapter = typeAdapter
 
-//            binding.addTransactionLayout.tag.onItemSelectedListener =
-//                object : AdapterView.OnItemSelectedListener {
-//                    override fun onItemSelected(
-//                        parent: AdapterView<*>,
-//                        view: View,
-//                        position: Int,
-//                        id: Long
-//                    ) {
-//                        trcTag = arrTag[position]
-//                    }
-//
-//                    override fun onNothingSelected(parent: AdapterView<*>?) {
-//                        // Do nothing
-//                    }
-//                }
-
-            binding.addTransactionLayout.tag.onItemSelectedListener =
-                object : AdapterView.OnItemSelectedListener {
-                    override fun onItemSelected(
-                        parent: AdapterView<*>,
-                        view: View,
-                        position: Int,
-                        id: Long
-                    ) {
-                        trcTag = arrTag[position]
-                    }
-
-                    override fun onNothingSelected(parent: AdapterView<*>?) {
-                        TODO("Not yet implemented")
+        binding.addTransactionLayout.tag.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View,
+                    position: Int,
+                    id: Long
+                ) {
+                    if (isTagSpinnerInitialized) {
+                        if (position == 0) {
+                            Toast.makeText(requireContext(), "Pilih kategori yang sesuai", Toast.LENGTH_SHORT).show()
+                        } else {
+                            trcTag = arrTag[position]
+                        }
+                    } else {
+                        isTagSpinnerInitialized = true
                     }
                 }
 
-            binding.addTransactionLayout.transactionType.onItemSelectedListener =
-                object : AdapterView.OnItemSelectedListener {
-                    override fun onItemSelected(
-                        parent: AdapterView<*>,
-                        view: View,
-                        position: Int,
-                        id: Long
-                    ) {
-                        trcType = arrTrcType[position]
-                    }
-
-                    override fun onNothingSelected(parent: AdapterView<*>?) {
-                        TODO("Not yet implemented")
-                    }
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    // Do nothing
                 }
-            // Transform EditText to DatePicker
-                binding.addTransactionLayout.etWhen.setOnClickListener {
-                    showDatePickerDialog()
-
-                binding.btnSave.setOnClickListener {
-                    if (validateInputs())
-                    try {
-                        val data = Transaction(
-                            title = binding.addTransactionLayout.etTitle.text.toString(),
-                            amount = binding.addTransactionLayout.etAmount.text.toString()
-                                .toDouble(),
-                            date = binding.addTransactionLayout.etWhen.text.toString(),
-                            note = binding.addTransactionLayout.etNote.text.toString(),
-                            tag = trcTag.toString(),
-                            transactionType = trcType.toString()
-                        )
-                        transactionModel.insertTrc(this.requireContext(), data)
-                        Toast.makeText(
-                            this.requireContext(),
-                            "Data Berhasil Disimpan",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        binding.addTransactionLayout.etTitle.text = null
-                        binding.addTransactionLayout.etAmount.text = null
-                        binding.addTransactionLayout.etWhen.text = null
-                        binding.addTransactionLayout.etNote.text = null
-                    } catch (ex: Exception) {
-                        Toast.makeText(this.requireContext(), ex.message, Toast.LENGTH_SHORT).show()
-                    }
-                }
-
             }
 
+        binding.addTransactionLayout.transactionType.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View,
+                    position: Int,
+                    id: Long
+                ) {
+                    if (isTypeSpinnerInitialized) {
+                        if (position == 0) {
+                            Toast.makeText(requireContext(), "Pilih kategori yang sesuai", Toast.LENGTH_SHORT).show()
+                        } else {
+                            trcType = arrTrcType[position]
+                        }
+                    } else {
+                        isTypeSpinnerInitialized = true
+                    }
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    // Do nothing
+                }
+            }
+
+        binding.addTransactionLayout.etWhen.setOnClickListener {
+            showDatePickerDialog()
         }
+
+        binding.btnSave.setOnClickListener {
+            if (validateInputs()) {
+                try {
+                    val data = Transaction(
+                        title = binding.addTransactionLayout.etTitle.text.toString(),
+                        amount = binding.addTransactionLayout.etAmount.text.toString().toDouble(),
+                        date = binding.addTransactionLayout.etWhen.text.toString(),
+                        note = binding.addTransactionLayout.etNote.text.toString(),
+                        tag = trcTag.toString(),
+                        transactionType = trcType.toString()
+                    )
+                    transactionModel.insertTrc(requireContext(), data)
+                    Toast.makeText(requireContext(), "Data Berhasil Disimpan", Toast.LENGTH_SHORT).show()
+                    clearFields()
+                } catch (ex: Exception) {
+                    Toast.makeText(requireContext(), ex.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
     private fun validateInputs(): Boolean {
         with(binding.addTransactionLayout) {
             return when {
@@ -160,6 +158,7 @@ class AddTransactionFragment : Fragment() {
             }
         }
     }
+
     private fun clearFields() {
         with(binding.addTransactionLayout) {
             etTitle.text = null
@@ -171,7 +170,8 @@ class AddTransactionFragment : Fragment() {
         trcType = null
     }
 
-    private fun showDatePickerDialog() {val calendar = Calendar.getInstance()
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)

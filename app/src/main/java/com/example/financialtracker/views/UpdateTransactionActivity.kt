@@ -15,6 +15,7 @@ import com.example.financialtracker.databinding.UpdateTransactionBinding
 import com.example.financialtracker.model.Transaction
 import com.example.financialtracker.utility.indonesiaRupiah
 import com.example.financialtracker.viewmodels.TransactionViewModel
+import com.example.financialtracker.views.adapter.CustomSpinnerAdapter
 import java.util.Calendar
 
 class UpdateTransactionActivity : AppCompatActivity() {
@@ -23,6 +24,8 @@ class UpdateTransactionActivity : AppCompatActivity() {
     private var trcTag: String? = null
     private var trcType: String? = null
     private var transaction: Transaction? = null
+    private var isTagSpinnerInitialized = false
+    private var isTypeSpinnerInitialized = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,14 +48,14 @@ class UpdateTransactionActivity : AppCompatActivity() {
 
     private fun initViews() {
         val arrTag = resources.getStringArray(R.array.tag)
-        val adapterTag = ArrayAdapter(
-            this, android.R.layout.simple_spinner_item, arrTag
+        val adapterTag = CustomSpinnerAdapter(
+            this, android.R.layout.simple_spinner_dropdown_item, arrTag
         )
         binding.addTransactionLayout.tag.adapter = adapterTag
 
         val arrTrcType = resources.getStringArray(R.array.TrcType)
-        val adapterTrcType = ArrayAdapter(
-            this, android.R.layout.simple_spinner_item, arrTrcType
+        val adapterTrcType = CustomSpinnerAdapter(
+            this, android.R.layout.simple_spinner_dropdown_item, arrTrcType
         )
         binding.addTransactionLayout.transactionType.adapter = adapterTrcType
 
@@ -64,7 +67,15 @@ class UpdateTransactionActivity : AppCompatActivity() {
                     position: Int,
                     id: Long
                 ) {
-                    trcTag = arrTag[position]
+                    if (isTagSpinnerInitialized) {
+                        if (position == 0) {
+                            Toast.makeText(this@UpdateTransactionActivity, "Pilih kategori yang sesuai", Toast.LENGTH_SHORT).show()
+                        } else {
+                            trcTag = arrTag[position]
+                        }
+                    } else {
+                        isTagSpinnerInitialized = true
+                    }
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -80,7 +91,15 @@ class UpdateTransactionActivity : AppCompatActivity() {
                     position: Int,
                     id: Long
                 ) {
-                    trcType = arrTrcType[position]
+                    if (isTypeSpinnerInitialized) {
+                        if (position == 0) {
+                            Toast.makeText(this@UpdateTransactionActivity, "Pilih kategori yang sesuai", Toast.LENGTH_SHORT).show()
+                        } else {
+                            trcType = arrTrcType[position]
+                        }
+                    } else {
+                        isTypeSpinnerInitialized = true
+                    }
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -171,13 +190,13 @@ class UpdateTransactionActivity : AppCompatActivity() {
         }
     }
 
-
     private fun setSpinnerSelection(spinner: Spinner, value: String) {
         val adapter = spinner.adapter as? ArrayAdapter<String>
         adapter?.let {
             val position = it.getPosition(value)
-            spinner.setSelection(position) }
-            }
+            spinner.setSelection(position)
+        }
+    }
 
     private fun showDatePickerDialog() {
         val calendar = Calendar.getInstance()
