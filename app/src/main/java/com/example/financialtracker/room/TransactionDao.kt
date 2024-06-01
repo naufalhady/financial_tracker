@@ -1,14 +1,8 @@
 package com.example.financialtracker.room
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.example.financialtracker.model.Transaction
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TransactionDao {
@@ -26,18 +20,10 @@ interface TransactionDao {
     suspend fun deleteTransaction(transaction: Transaction)
 
     // get all saved transaction list
-    @Query("SELECT * FROM transactions ORDER by createdAt DESC")
+    @Query("SELECT * FROM transactions ORDER BY createdAt DESC")
     fun getAllTransactions(): LiveData<List<Transaction>>
 
     // get all income or expense list by transaction type param
-    @Query("SELECT * FROM transactions WHERE transactionType == :transactionType ORDER by createdAt DESC")
-    fun getAllSingleTransaction(transactionType: String): Flow<List<Transaction>>
-
-    // get single transaction by id
-    @Query("SELECT * FROM transactions WHERE id = :id")
-    fun getTransactionByID(id: Int): Flow<Transaction>
-
-    // delete transaction by id
-    @Query("DELETE FROM transactions WHERE id = :id")
-    suspend fun deleteTransactionByID(id: Int)
+    @Query("SELECT * FROM transactions WHERE transactionType = :transactionType ORDER BY createdAt DESC")
+    fun getTransactionsByType(transactionType: String): LiveData<List<Transaction>>
 }

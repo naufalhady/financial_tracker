@@ -5,10 +5,13 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.financialtracker.R
 import com.example.financialtracker.databinding.DetailTransactionBinding
 import com.example.financialtracker.model.Transaction
 import com.example.financialtracker.repo.TransactionRepository
+import com.example.financialtracker.utility.indonesiaRupiah
 import kotlinx.coroutines.launch
 
 class DetailActivity : AppCompatActivity() {
@@ -19,11 +22,12 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DetailTransactionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.blue_dark)
 
         val transaction = intent.getSerializableExtra(EXTRA_TRANSACTION) as? Transaction
         transaction?.let {
             binding.title.text = it.title
-            binding.amount.text = it.amount.toString()
+            binding.amount.text = indonesiaRupiah(it.amount)
             binding.type.text = it.transactionType
             binding.tag.text = it.tag
             binding.date.text = it.date

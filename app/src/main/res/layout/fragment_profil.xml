@@ -1,18 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.fragment.ProfilFragment"
+    android:background="?android:attr/windowBackground"
     android:orientation="vertical"
-    android:layout_gravity="center">
+    android:padding="16dp"
+    android:gravity="center"
+    tools:context=".views.fragment.ProfilFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="16dp"
+        android:src="@mipmap/ic_profile" />
+
     <TextView
+        android:id="@+id/profileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
-        android:layout_gravity="center"/>
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Muhammad Naufal Hady Anshari Jaelani"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/profileNpm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="NPM: 5210411365"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/profileTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Judul: Perancangan Aplikasi Financial Tracker berbasis mobile menggunakan design pattern MVVM"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+        android:textColor="@android:color/black"
+        android:textAlignment="center" />
+</LinearLayout>

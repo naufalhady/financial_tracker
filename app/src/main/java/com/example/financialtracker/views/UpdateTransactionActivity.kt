@@ -9,9 +9,11 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.financialtracker.R
 import com.example.financialtracker.databinding.UpdateTransactionBinding
 import com.example.financialtracker.model.Transaction
+import com.example.financialtracker.utility.indonesiaRupiah
 import com.example.financialtracker.viewmodels.TransactionViewModel
 import java.util.Calendar
 
@@ -26,6 +28,7 @@ class UpdateTransactionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = UpdateTransactionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.blue_dark)
 
         transaction = intent.getSerializableExtra(DetailActivity.EXTRA_TRANSACTION) as? Transaction
         transaction?.let {
@@ -104,6 +107,9 @@ class UpdateTransactionActivity : AppCompatActivity() {
                             transactionType = trcType.toString()
                         )
                         transactionModel.updateTransaction(this, updatedTransaction)
+                        // Memformat jumlah transaksi dan menampilkannya
+                        val formattedAmount = indonesiaRupiah(updatedTransaction.amount)
+                        binding.addTransactionLayout.etAmount.setText(formattedAmount)
                         Toast.makeText(this, "Data Berhasil Diperbarui", Toast.LENGTH_SHORT).show()
                         finish()
                     } else {
@@ -147,10 +153,24 @@ class UpdateTransactionActivity : AppCompatActivity() {
                     Toast.makeText(this@UpdateTransactionActivity, "Transaction is null", Toast.LENGTH_SHORT).show()
                     false
                 }
-                else -> true
+                else -> {
+                    // Validate amount
+                    try {
+                        val amount = etAmount.text.toString().toDouble()
+                        if (amount <= 0) {
+                            etAmount.error = "Amount must be greater than 0"
+                            return false
+                        }
+                    } catch (e: NumberFormatException) {
+                        etAmount.error = "Invalid amount format"
+                        return false
+                    }
+                    true
+                }
             }
         }
     }
+
 
     private fun setSpinnerSelection(spinner: Spinner, value: String) {
         val adapter = spinner.adapter as? ArrayAdapter<String>

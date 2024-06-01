@@ -2,29 +2,27 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cv_profile"
     android:layout_width="match_parent"
-    android:layout_height="81dp"
-    android:layout_margin="8dp"
-    app:cardBackgroundColor="@color/white"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/blue_dark"
     app:cardElevation="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/titleProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_semibold"
-            android:gravity="center_horizontal"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-            android:textStyle="bold"
-            tools:text="PROFILE"/>
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/profil"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserrat_semibold"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

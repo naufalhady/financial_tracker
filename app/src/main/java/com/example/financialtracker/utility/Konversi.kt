@@ -100,5 +100,12 @@ val String.cleanTextContent: String
 
 // parse string to double
 fun parseDouble(value: String?): Double {
-    return if (value == null || value.isEmpty()) Double.NaN else value.toDouble()
+    return if (value == null || value.isEmpty()) Double.NaN else {
+        // Hapus karakter non-numeric kecuali tanda titik "."
+        val cleanedValue = value.replace(Regex("[^\\d.]"), "")
+        // Ubah titik yang terletak sebelum tanda ribuan menjadi kosong
+        val formattedValue = cleanedValue.replace(".", "")
+        formattedValue.toDoubleOrNull() ?: Double.NaN
+    }
 }
+

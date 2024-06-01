@@ -4,9 +4,7 @@
     android:id="@+id/cv_add_transaction"
     android:layout_width="match_parent"
     android:layout_height="81dp"
-    android:layout_margin="8dp"
-    app:cardBackgroundColor="@color/white"
-    app:cardElevation="0dp">
+    app:cardBackgroundColor="@color/blue_dark">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,9 +18,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_semibold"
             android:gravity="center_horizontal"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-            android:textStyle="bold"
-            android:text="@string/header_add_transaction" />
+            android:text="@string/header_add_transaction"
+            android:textSize="20sp"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

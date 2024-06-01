@@ -6,42 +6,39 @@
     android:id="@+id/detail_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/blue_dark">
 
-    <TextView
+    <include
         android:id="@+id/titleDetailTransaction"
+        layout="@layout/header_detail_transaction"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:fontFamily="@font/montserrat_semibold"
-        android:gravity="center"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        android:textStyle="bold"
+        android:layout_height="61dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="DETAIL TRANSACTION" />
+        android:elevation="2dp"/>
 
 
         <TextView
             android:id="@+id/caption_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_16"
-            android:layout_marginTop="61dp"
-            android:fontFamily="@font/montserrat_bold"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="90dp"
+            android:fontFamily="@font/montserrat_semibold"
             android:text="@string/text_title"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/white"/>
         <TextView
             android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="@dimen/dimen_8"
                 android:fontFamily="@font/montserrat_regular"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/caption_title"
                 tools:text="Samsung level earphones" />
@@ -51,49 +48,47 @@
                 android:id="@+id/caption_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="@dimen/dimen_24"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/montserrat_semibold"
                 android:text="@string/text_expense_amount"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title" />
+                app:layout_constraintTop_toBottomOf="@id/title"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="@dimen/dimen_8"
                 android:fontFamily="@font/montserrat_regular"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/caption_amount"
-                tools:text="Amount" />
+                tools:text="Rp 0" />
 
 
             <TextView
                 android:id="@+id/caption_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="@dimen/dimen_24"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/montserrat_semibold"
                 android:text="@string/text_expense_transaction_type"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/amount" />
+                app:layout_constraintTop_toBottomOf="@id/amount"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="@dimen/dimen_8"
                 android:fontFamily="@font/montserrat_regular"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/caption_type"
                 tools:text="Income" />
@@ -103,23 +98,22 @@
                 android:id="@+id/caption_tag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="@dimen/dimen_24"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/montserrat_semibold"
                 android:text="@string/text_expense_tag"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/type" />
+                app:layout_constraintTop_toBottomOf="@id/type"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/tag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="@dimen/dimen_8"
                 android:fontFamily="@font/montserrat_regular"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/caption_tag"
                 tools:text="Personal Spendings" />
@@ -129,23 +123,23 @@
                 android:id="@+id/caption_when"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="@dimen/dimen_24"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/montserrat_semibold"
                 android:text="@string/text_expense_when"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tag" />
+                app:layout_constraintTop_toBottomOf="@id/tag"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="@dimen/dimen_8"
                 android:fontFamily="@font/montserrat_regular"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/caption_when"
                 tools:text="Sunday, 18 Dec 2021" />
@@ -154,23 +148,23 @@
                 android:id="@+id/caption_note"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="@dimen/dimen_24"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/montserrat_semibold"
                 android:text="@string/text_expense_note"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/date" />
+                app:layout_constraintTop_toBottomOf="@id/date"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/note"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="@dimen/dimen_8"
                 android:fontFamily="@font/montserrat_regular"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/caption_note"
                 tools:text="Note" />
@@ -179,23 +173,23 @@
                 android:id="@+id/caption_createdAt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="@dimen/dimen_24"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/montserrat_semibold"
                 android:text="@string/text_createdAt"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/note" />
+                app:layout_constraintTop_toBottomOf="@id/note"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/createdAt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="@dimen/dimen_8"
                 android:fontFamily="@font/montserrat_regular"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/caption_createdAt"
                 tools:text="Sunday, 18 Dec 2021" />
@@ -205,26 +199,27 @@
                 style="@style/PrimaryButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="70dp"
-                android:layout_marginEnd="@dimen/dimen_16"
+                android:layout_marginEnd="25dp"
                 android:text="@string/text_edit_transaction"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/createdAt" />
+                app:layout_constraintTop_toBottomOf="@id/createdAt"
+                android:textAllCaps="false"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_delete_transaction"
                 style="@style/PrimaryButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="@dimen/dimen_16"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="25dp"
                 android:text="@string/text_delete_transaction"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_edit_transaction" />
+                app:layout_constraintTop_toBottomOf="@id/btn_edit_transaction"
+                android:textAllCaps="false"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

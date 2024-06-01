@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Financial Tracker</string>
     <string name="default_text">Deploy ke 1</string>
-    <string name="header_home">HOME</string>
-    <string name="header_add_transaction">ADD TRANSACTION</string>
+    <string name="header_home">Home</string>
+    <string name="header_add_transaction">Add Transaction</string>
 
     <!--Randomly-->
     <string name="text_delete_transaction">Delete Transaction</string>
@@ -17,7 +17,7 @@
     <string name="text_view_all">View all</string>
     <string name="text_expense_when">When</string>
     <string name="text_expense_amount">Amount</string>
-    <string name="text_expense_transaction_type">Transaction type</string>
+    <string name="text_expense_transaction_type"> Transaction type</string>
     <string name="text_expense_tag">Tag</string>
     <string name="text_expense_note">Note</string>
     <string name="text_expense_add_transaction">Save Transaction</string>
@@ -29,6 +29,16 @@
     <string name="text_filter">Filter</string>
     <string name="text_edit">Edit</string>
     <string name="text_createdAt">Created At</string>
+    <string name="text_allIncomeTrc">All Income Transactions</string>
+    <string name="text_allExpenseTrc">All Expense Transactions</string>
+    <string name="nominalKosong">Rp 0</string>
+    <string name="expense">Expense</string>
+    <string name="income">Income</string>
+    <string name="profil">Profile</string>
+    <string name="update_transaction">Update Transaction</string>
+    <string name="detail_transaction">Detail Transaction</string>
+
+
 
     <!--NAVBAR-->
     <string name="nav_beranda">Beranda</string>
@@ -48,7 +58,6 @@
         <item>Income</item>
         <item>Expense</item>
     </string-array>
-
     <string-array name="tag">
         <item>Essential Needs</item>
         <item>Savings and Investments</item>

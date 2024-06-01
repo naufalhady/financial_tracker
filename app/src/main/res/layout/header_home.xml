@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="81dp"
     android:layout_margin="8dp"
-    app:cardBackgroundColor="@color/white"
-    app:cardElevation="0dp">
+    app:cardBackgroundColor="@color/blue_dark"
+    app:cardElevation="0dp"
+    android:outlineSpotShadowColor="@color/black">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,9 +21,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_semibold"
             android:gravity="center_horizontal"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-            android:textStyle="bold"
-            android:text="@string/header_home" />
+            android:text="@string/header_home"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

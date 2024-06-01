@@ -40,7 +40,8 @@
             android:text="@string/text_update_transaction"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/addTransactionLayout" />
+            app:layout_constraintTop_toBottomOf="@id/addTransactionLayout"
+            android:layout_margin="32dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
