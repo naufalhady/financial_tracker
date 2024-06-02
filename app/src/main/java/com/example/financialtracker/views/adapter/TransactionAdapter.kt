@@ -22,7 +22,7 @@ class TransactionAdapter(
                 transactionCategory.text = item.tag
 
                 when (item.transactionType) {
-                    "Income" -> {
+                    "Pemasukan" -> {
                         transactionAmount.setTextColor(
                             ContextCompat.getColor(
                                 transactionAmount.context,
@@ -31,7 +31,7 @@ class TransactionAdapter(
                         )
                         transactionAmount.text = "+ ".plus(indonesiaRupiah(item.amount))
                     }
-                    "Expense" -> {
+                    "Pengeluaran" -> {
                         transactionAmount.setTextColor(
                             ContextCompat.getColor(
                                 transactionAmount.context,
@@ -42,10 +42,10 @@ class TransactionAdapter(
                     }
                 }
                 when (item.tag) {
-                    "Essential Needs" -> transactionIconView.setImageResource(R.drawable.ic_food)
-                    "Savings and Investments" -> transactionIconView.setImageResource(R.drawable.ic_savings)
-                    "Lifestyle" -> transactionIconView.setImageResource(R.drawable.ic_lifestyle)
-                    "Miscellaneous" -> transactionIconView.setImageResource(R.drawable.ic_others)
+                    "Kebutuhan Sehari-hari" -> transactionIconView.setImageResource(R.drawable.ic_food)
+                    "Tabungan dan Investasi" -> transactionIconView.setImageResource(R.drawable.ic_savings)
+                    "Gaya hidup" -> transactionIconView.setImageResource(R.drawable.ic_lifestyle)
+                    "Hal lainnya" -> transactionIconView.setImageResource(R.drawable.ic_others)
                     else -> transactionIconView.setImageResource(R.drawable.ic_others)
                 }
 

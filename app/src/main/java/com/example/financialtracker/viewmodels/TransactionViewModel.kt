@@ -53,12 +53,12 @@ class TransactionViewModel : ViewModel() {
     }
 
     private fun calculateTotalIncome(transactions: List<Transaction>): Double {
-        return transactions.filter { it.transactionType == "Income" }
+        return transactions.filter { it.transactionType == "Pemasukan" }
             .sumOf { it.amount }
     }
 
     private fun calculateTotalExpense(transactions: List<Transaction>): Double {
-        return transactions.filter { it.transactionType == "Expense" }
+        return transactions.filter { it.transactionType == "Pengeluaran" }
             .sumOf { it.amount }
     }
 }

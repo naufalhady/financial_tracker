@@ -67,14 +67,14 @@ class DetailActivity : AppCompatActivity() {
     private fun showDeleteConfirmationDialog(transaction: Transaction) {
         val alertDialogBuilder = AlertDialog.Builder(this)
         alertDialogBuilder.apply {
-            setTitle("Delete Transaction")
-            setMessage("Are you sure you want to delete this transaction?")
-            setPositiveButton("Yes") { dialog, _ ->
+            setTitle("Hapus Data Transaksi")
+            setMessage("Apakah Anda yakin ingin menghapus data transaksi ini?")
+            setPositiveButton("Ya") { dialog, _ ->
                 // Memanggil fungsi untuk menghapus transaksi dari repository
                 deleteTransactionFromRepository(transaction)
                 dialog.dismiss()
             }
-            setNegativeButton("No") { dialog, _ ->
+            setNegativeButton("Tidak") { dialog, _ ->
                 dialog.dismiss()
             }
         }

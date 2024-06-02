@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
 
         transactionViewModel.getAllTrc(this.requireContext())?.observe(viewLifecycleOwner) { transactions ->
             if (transactions.isNullOrEmpty()) {
-                Toast.makeText(this.requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.requireContext(), "Tidak ada data transaksi!", Toast.LENGTH_SHORT).show()
             } else {
                 binding.transactionRv.apply {
                     layoutManager = LinearLayoutManager(this@HomeFragment.requireContext())

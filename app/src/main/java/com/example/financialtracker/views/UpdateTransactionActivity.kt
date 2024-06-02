@@ -132,7 +132,7 @@ class UpdateTransactionActivity : AppCompatActivity() {
                         Toast.makeText(this, "Data Berhasil Diperbarui", Toast.LENGTH_SHORT).show()
                         finish()
                     } else {
-                        Toast.makeText(this, "Transaction is null", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Tidak ada data transaksi", Toast.LENGTH_SHORT).show()
                     }
                 } catch (ex: Exception) {
                     Toast.makeText(this, ex.message, Toast.LENGTH_SHORT).show()
@@ -145,31 +145,31 @@ class UpdateTransactionActivity : AppCompatActivity() {
         with(binding.addTransactionLayout) {
             return when {
                 etTitle.text.isNullOrEmpty() -> {
-                    etTitle.error = "Title must not be empty"
+                    etTitle.error = "Judul wajib diisi"
                     false
                 }
                 etAmount.text.isNullOrEmpty() -> {
-                    etAmount.error = "Amount must not be empty"
+                    etAmount.error = "Jumlah wajib diisi"
                     false
                 }
                 etWhen.text.isNullOrEmpty() -> {
-                    etWhen.error = "Date must not be empty"
+                    etWhen.error = "Tanggal wajib diisi"
                     false
                 }
                 etNote.text.isNullOrEmpty() -> {
-                    etNote.error = "Note must not be empty"
+                    etNote.error = "Catatan wajib diisi"
                     false
                 }
                 trcTag.isNullOrEmpty() -> {
-                    Toast.makeText(this@UpdateTransactionActivity, "Tag must not be empty", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@UpdateTransactionActivity, "Tag wajib diisi", Toast.LENGTH_SHORT).show()
                     false
                 }
                 trcType.isNullOrEmpty() -> {
-                    Toast.makeText(this@UpdateTransactionActivity, "Transaction type must not be empty", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@UpdateTransactionActivity, "Jenis transaksi wajib diisi", Toast.LENGTH_SHORT).show()
                     false
                 }
                 transaction == null -> {
-                    Toast.makeText(this@UpdateTransactionActivity, "Transaction is null", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@UpdateTransactionActivity, "Tidak ada data transaksi", Toast.LENGTH_SHORT).show()
                     false
                 }
                 else -> {
@@ -177,11 +177,11 @@ class UpdateTransactionActivity : AppCompatActivity() {
                     try {
                         val amount = etAmount.text.toString().toDouble()
                         if (amount <= 0) {
-                            etAmount.error = "Amount must be greater than 0"
+                            etAmount.error = "Jumlahnya harus lebih besar dari 0"
                             return false
                         }
                     } catch (e: NumberFormatException) {
-                        etAmount.error = "Invalid amount format"
+                        etAmount.error = "Format jumlah tidak valid"
                         return false
                     }
                     true

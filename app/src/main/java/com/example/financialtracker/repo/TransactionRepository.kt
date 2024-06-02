@@ -55,12 +55,12 @@ class TransactionRepository {
 
         // Fungsi untuk mendapatkan transaksi pendapatan
         fun getIncomeTransactions(context: Context): LiveData<List<Transaction>> {
-            return getTransactionsByType(context, "Income")
+            return getTransactionsByType(context, "Pemasukan")
         }
 
         // Fungsi untuk mendapatkan transaksi pengeluaran
         fun getExpenseTransactions(context: Context): LiveData<List<Transaction>> {
-            return getTransactionsByType(context, "Expense")
+            return getTransactionsByType(context, "Pengeluaran")
         }
     }
 }

@@ -131,27 +131,27 @@ class AddTransactionFragment : Fragment() {
         with(binding.addTransactionLayout) {
             return when {
                 etTitle.text.isNullOrEmpty() -> {
-                    etTitle.error = "Title must not be empty"
+                    etTitle.error = "Judul wajib diisi"
                     false
                 }
                 etAmount.text.isNullOrEmpty() -> {
-                    etAmount.error = "Amount must not be empty"
+                    etAmount.error = "Jumlah wajib diisi"
                     false
                 }
                 etWhen.text.isNullOrEmpty() -> {
-                    etWhen.error = "Date must not be empty"
+                    etWhen.error = "Tanggal wajib diisi"
                     false
                 }
                 etNote.text.isNullOrEmpty() -> {
-                    etNote.error = "Note must not be empty"
+                    etNote.error = "Catatan wajib diisi"
                     false
                 }
                 trcTag.isNullOrEmpty() -> {
-                    Toast.makeText(requireContext(), "Tag must not be empty", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Tag wajib diisi", Toast.LENGTH_SHORT).show()
                     false
                 }
                 trcType.isNullOrEmpty() -> {
-                    Toast.makeText(requireContext(), "Transaction type must not be empty", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Jenis transaksi wajib diisi", Toast.LENGTH_SHORT).show()
                     false
                 }
                 else -> true
