@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.financialtracker.R
 import com.example.financialtracker.databinding.FragmentPemasukanBinding
 import com.example.financialtracker.model.Transaction
 import com.example.financialtracker.utility.indonesiaRupiah
@@ -32,6 +34,9 @@ class PemasukanFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Set the status bar color
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.blue_dark)
 
         transactionViewModel.getIncomeTransactions(this.requireContext())?.observe(viewLifecycleOwner) { transactions ->
             Log.d("PemasukanFragment", "Observed transactions: $transactions")

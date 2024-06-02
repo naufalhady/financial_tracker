@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.financialtracker.R
 import com.example.financialtracker.databinding.FragmentHomeBinding
 import com.example.financialtracker.utility.indonesiaRupiah
 import com.example.financialtracker.utility.parseDouble
@@ -31,6 +33,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Set the status bar color
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.blue_dark)
 
         transactionViewModel.getAllTrc(this.requireContext())?.observe(viewLifecycleOwner) { transactions ->
             if (transactions.isNullOrEmpty()) {
@@ -55,7 +60,6 @@ class HomeFragment : Fragment() {
                 val totalExpenseStr = transactionViewModel.getTotalExpense(transactions)
                 val totalExpense = parseDouble(totalExpenseStr)
                 binding.expenseCardView.totalExpense.text = indonesiaRupiah(totalExpense)
-
 
                 // Calculate and set total balance
                 val totalBalance = totalIncome - totalExpense
