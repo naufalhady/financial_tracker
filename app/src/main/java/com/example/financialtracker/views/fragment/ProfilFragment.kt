@@ -28,10 +28,6 @@ class ProfilFragment : Fragment() {
         requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.blue_dark)
 
         // Set profile information
-        binding.apply {
-            profileName.text = "Muhammad Naufal Hady Anshari Jaelani"
-            profileNpm.text = "NPM: 5210411365"
-            profileTitle.text = "Judul: Perancangan Aplikasi Financial Tracker berbasis mobile menggunakan design pattern MVVM"
-        }
+
     }
 }

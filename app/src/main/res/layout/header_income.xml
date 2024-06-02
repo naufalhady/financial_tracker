@@ -6,7 +6,7 @@
     android:id="@+id/cv_income"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="0dp"
+    app:cardElevation="3dp"
     app:cardBackgroundColor="@color/blue_dark">
 
     <LinearLayout
