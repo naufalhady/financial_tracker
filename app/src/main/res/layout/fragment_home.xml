@@ -89,7 +89,7 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/main_dashboard_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="486dp"
+        android:layout_height="515dp"
         android:layout_gravity="top"
         android:fillViewport="true"
         android:scrollbars="none"
@@ -99,7 +99,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/transaction_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="top"
             android:visibility="visible"
             tools:listitem="@layout/item_transaction_layout"
